@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+}
+/* General Styling to body to keep everything in center using flex */
+body{
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+/* Setting container to flex and width to 90% of view port */
+.container{
+    display: flex;
+    width: 90vw;
+}
+/* Background properties and transition effect to panel  */
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    /* Making flex 0.5 initially */
+    flex: 0.5;
+    margin:10px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+} 
+/* Inital h3 will be not displayed so opacity will be 0*/
+.panel h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left:20px;
+    opacity: 0;
+}
+/* Panel with active class will grow flex to 5 times  */
+.panel.active{
+    flex: 5;
+}
+/* h3 with active class  */
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.6s;
+
+}
+/* For smaller screen 4th and 5th will be hidden */
+@media(max-width:400px){
+    .container{
+        width: 100vh;
+    }
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
